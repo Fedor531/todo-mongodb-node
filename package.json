@@ -1,0 +1,31 @@
+{
+  "name": "todo-mysql-node",
+  "version": "1.0.0",
+  "description": "training project to learn node.js and mysql",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Fedor531/todo-mysql-node.git"
+  },
+  "keywords": [
+    "js",
+    "node.js",
+    "mysql"
+  ],
+  "author": "Fedor Pereverzev <fedor531@yandex.ru>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Fedor531/todo-mysql-node/issues"
+  },
+  "homepage": "https://github.com/Fedor531/todo-mysql-node#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.14"
+  }
+}
