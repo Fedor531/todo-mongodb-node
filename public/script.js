@@ -14,12 +14,19 @@ new Vue({
             if (!title) {
                 return
             }
-            this.todos.push({
-                title: title,
-                id: Math.random(),
-                done: false,
-                date: new Date()
+
+            fetch('/api/todo', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ title })
             })
+                .then(res => res.json())
+                .then(({ todo }) => {
+                    console.log(todo)
+
+                    this.todos.push(todo);
+                    this.todoTitle = '';
+                })
             this.todoTitle = ''
         },
         removeTodo(id) {

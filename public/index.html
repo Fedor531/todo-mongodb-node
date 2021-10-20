@@ -51,7 +51,8 @@
                                             @keyup.enter="addTodo"
                                             :dark="isDark"
                                     >
-                                    </v-text-field>
+                                    </v-text-field
+                                            clearable>
                                 </v-flex>
                             </v-container>
                             <v-subheader class="subheading" v-if="todos.length === 0">
@@ -77,7 +78,7 @@
                                             Добавлено в: {{ todo.date | date }}
                                         </v-list-tile-sub-title>
                                     </v-list-tile-content>
-                                    <v-btn icon ripple color="red" @click="removeTodo(todo.id)">
+                                    <v-btn icon ripple color="red" @click="removeTodo(todo._id)">
                                         <v-icon class="white--text">close</v-icon>
                                     </v-btn>
                                 </v-list-tile>
