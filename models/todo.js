@@ -9,7 +9,12 @@ const todoSchema = new Schema({
         type: Boolean,
         required: true
     },
-    date: {
+    createdAt: {
+        type: Date,
+        default: Date.now,
+        required: true
+    },
+    updatedAt: {
         type: Date,
         default: Date.now,
         required: true

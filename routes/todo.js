@@ -4,8 +4,9 @@ const Todo = require('../models/todo')
 const router = Router();
 
 // Получение списка задач
-router.get('/', (req, res) => {
-    res.json({a: 1})
+router.get('/', async (req, res) => {
+    const todos = await Todo.find({}).select('title done createdAt updatedAt').lean()
+    res.status(200).json(todos);
 })
 
 // Создание новой задачи
