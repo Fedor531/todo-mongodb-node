@@ -19,7 +19,7 @@ router.post('/', async (req, res) => {
         })
 
         await todo.save();
-        res.status(201).json({ todo });
+        res.status(200).json({ todo });
     }
     catch (e) {
         console.log(e);
@@ -30,8 +30,23 @@ router.post('/', async (req, res) => {
 })
 
 // Изменение задачи
-router.put('/:id', (req, res) => {
+router.put('/:id', async (req, res) => {
+    try {
+        const todo = await Todo.findById(req.params.id).lean();
 
+        console.log(req.body.done)
+        todo.done = req.body.done;
+        todo.updatedAt = req.body.updatedAt;
+
+        await Todo.findByIdAndUpdate(req.params.id, todo);
+        res.status(200).json({ todo });
+    }
+    catch (e) {
+        console.log(e);
+        res.status(500).json({
+            message: 'Server error'
+        })
+    }
 })
 
 // Удаление задачи
