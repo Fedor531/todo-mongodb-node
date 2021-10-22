@@ -1,4 +1,4 @@
-const { Router } = require('express');
+const { Router, json } = require('express');
 const Todo = require('../models/todo')
 
 const router = Router();
@@ -50,8 +50,11 @@ router.put('/:id', async (req, res) => {
 })
 
 // Удаление задачи
-router.delete('/:id', (req, res) => {
-
+router.delete('/:id', async (req, res) => {
+    await Todo.deleteOne({
+        id: req.params.id,
+    });
+    res.status(204).json({});
 })
 
 module.exports = router
